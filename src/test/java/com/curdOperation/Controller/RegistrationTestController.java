@@ -46,7 +46,6 @@ public class RegistrationTestController {
 	@Test
 	public void updateDetails() {
 		EmployeeVO vo = new EmployeeVO();
-		String updateMsg = "Record updated succesfully";
 		vo.setEmpId(1L);
 		vo.setEmpName("Ashok");
 		CompanyVO comp = new CompanyVO();
@@ -54,7 +53,7 @@ public class RegistrationTestController {
 		vo.setComp(comp);
 		Mockito.when(employeeDetails.updatEmployee(vo)).thenReturn(null);
 		ResponseEntity<String> result = empControllerController.updateEmployeeDetails(vo);
-		assertEquals(updateMsg, result.getBody());
+		assertEquals(Constant.updateMsg, result.getBody());
 	}
 
 	@Test
@@ -73,7 +72,6 @@ public class RegistrationTestController {
 	@Test
 	public void saveDetails() {
 		EmployeeVO vo = new EmployeeVO();
-		String updateMsg = "Save succesfully";
 		vo.setEmpId(1L);
 		vo.setEmpName("Ashok");
 		CompanyVO comp = new CompanyVO();
@@ -82,7 +80,7 @@ public class RegistrationTestController {
 		Mockito.doNothing().when(employeeDetails).rgistrationEmployeeDetails(vo);
 		ResponseEntity<String> result = empControllerController.registrationEmployeeDetails(vo);
 		;
-		assertEquals(updateMsg, result.getBody());
+		assertEquals(Constant.saveMsg, result.getBody());
 	}
 
 }

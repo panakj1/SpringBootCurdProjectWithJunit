@@ -14,7 +14,6 @@ import org.springframework.util.ObjectUtils;
 import com.curdOperation.Constant.Constant;
 import com.curdOperation.Exception.InvalidException;
 import com.curdOperation.Mapper.EmployeMapper;
-import com.curdOperation.Model.Company;
 import com.curdOperation.Model.Employee;
 import com.curdOperation.Repo.CompanyRepo;
 import com.curdOperation.Repo.EmployeeRepo;
@@ -55,12 +54,12 @@ public class EmployeeDetails {
 			employeeRepo.save(emp);
 			status=true;
 		}else {
-			return "No found any record on this id";
+			return Constant.noRecordFound;
 		}
 		if(status) {
-			return "Record updeted succfully";
+			return Constant.updateMsg;
 		}else {
-			return "Record is not updated";
+			return Constant.noUpdated;
 		}
 	}
 	
@@ -72,12 +71,12 @@ public class EmployeeDetails {
 			employeeRepo.deleteById(id);
 			status=true;
 		}else {
-			return "No found any record on this id";
+			return Constant.noRecordFound;
 		}
 		if(status) {
-			return "Record Delete succfully";
+			return Constant.deleteMsg;
 		}else {
-			return "Record is not Deleted";
+			return Constant.noDeleteMsg;
 		}
 		
 	}

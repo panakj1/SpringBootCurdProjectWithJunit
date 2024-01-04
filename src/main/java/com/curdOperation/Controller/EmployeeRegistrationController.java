@@ -37,7 +37,7 @@ public class EmployeeRegistrationController {
 	public ResponseEntity<String> registrationEmployeeDetails(@Valid @RequestBody EmployeeVO empVO) {
 		try {
 			empService.rgistrationEmployeeDetails(empVO);
-		return new ResponseEntity<String>("Save succesfully", HttpStatus.CREATED);
+		return new ResponseEntity<String>(Constant.saveMsg, HttpStatus.CREATED);
 		}catch(InvalidException e) {
 			throw new InvalidException(Constant.inputValidation);
 		}
@@ -59,7 +59,7 @@ public class EmployeeRegistrationController {
 	public ResponseEntity<String> updateEmployeeDetails(@RequestBody EmployeeVO empVO) {
 		if(!ObjectUtils.isEmpty(empVO.getEmpId()) && !ObjectUtils.isEmpty(empVO.getComp().getCompId())) {
 		empService.updatEmployee(empVO);
-		return new ResponseEntity<String>("Record updated succesfully", HttpStatus.CREATED);
+		return new ResponseEntity<String>(Constant.updateMsg, HttpStatus.CREATED);
 		}else {
 			throw new InvalidException(Constant.inputValidation);	
 		}
