@@ -35,6 +35,7 @@ public class EmployeeDetails {
 		Employee emp=EmployeMapper.INSTANCE.convertVOToEmployee(empVO);
 		employeeRepo.save(emp);
 		}catch(InvalidException e) {
+			logger.error("Error Msg in service Class EmployeeDetails {rgistrationEmployeeDetails} "+e);
 			throw new InvalidException(Constant.inputValidation);
 		}
 				
@@ -59,6 +60,7 @@ public class EmployeeDetails {
 		if(status) {
 			return Constant.updateMsg;
 		}else {
+			logger.error("Error Msg in service Class EmployeeDetails {updatEmployee} ");
 			return Constant.noUpdated;
 		}
 	}
